@@ -95,3 +95,41 @@ possibilities = [[a, b, c] for a in range(
     0, x + 1) for b in range(0, y + 1) for c in range(0, z + 1) if a + b + c != n]
 
 print(possibilities)
+
+# https://www.hackerrank.com/challenges/nested-list/problem
+
+results = []
+grades = []
+
+for _ in range(int(input())):
+    name = input()
+    score = float(input())
+    results.append([name, score])
+    grades.append(score)
+
+second_min = sorted(list(set(grades)))[1]
+students = []
+
+for result in results:
+    if result[1] == second_min:
+        students.append(result.pop(0))
+
+for student in sorted(students):
+    print(student)
+
+# https://www.hackerrank.com/challenges/finding-the-percentage/problem
+
+n = int(input())
+student_marks = {}
+
+for _ in range(n):
+    name, *line = input().split()
+    scores = list(map(float, line))
+    student_marks[name] = scores
+
+query_name = input()
+grades = student_marks[query_name]
+average = sum(grades) / len(grades)
+print(f"{average:.2f}")
+
+# https://www.hackerrank.com/challenges/python-lists/problem
