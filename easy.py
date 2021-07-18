@@ -130,6 +130,149 @@ for _ in range(n):
 query_name = input()
 grades = student_marks[query_name]
 average = sum(grades) / len(grades)
-print(f"{average:.2f}")
+print(f"{average:.2 f}")
 
 # https://www.hackerrank.com/challenges/python-lists/problem
+
+operations = int(input())
+
+
+def insert(numbers, index, number):
+    numbers.insert(index, number)
+
+
+def print_out(numbers):
+    print(numbers)
+
+
+def remove(numbers, number):
+    numbers.remove(number)
+
+
+def append(numbers, number):
+    numbers.append(number)
+
+
+def sort(numbers):
+    numbers.sort()
+
+
+def pop(numbers):
+    numbers.pop()
+
+
+def reverse(numbers):
+    numbers.reverse()
+
+
+functions = {
+    "insert": insert,
+    "print": print_out,
+    "remove": remove,
+    "append": append,
+    "sort": sort,
+    "pop": pop,
+    "reverse": reverse
+}
+
+numbers = []
+for _ in range(operations):
+    operation, *lines = input().split()
+    params = list(map(int, lines))
+    functions[operation](numbers, *params)
+
+# https://www.hackerrank.com/challenges/python-tuples/problem
+
+size = int(input())
+
+numbers = tuple(map(int, input().split()))
+print(hash(numbers))
+
+# https://www.hackerrank.com/challenges/swap-case/problem
+
+
+def swap_case(s):
+    swap_cased = []
+    for char in s:
+        if char.islower():
+            swap_cased.append(char.upper())
+        else:
+            swap_cased.append(char.lower())
+    return "".join(swap_cased)
+
+# https://www.hackerrank.com/challenges/python-string-split-and-join/problem
+
+
+def split_and_join(line):
+    split = line.split(" ")
+    joined = "-".join(split)
+    return joined
+
+# https://www.hackerrank.com/challenges/whats-your-name/problem
+
+
+def print_full_name(first, last):
+    print(f"Hello {first} {last}! You just delved into python.")
+
+# https://www.hackerrank.com/challenges/python-mutations/problem
+
+
+def mutate_string(string, position, character):
+    return string[:position] + character + string[position + 1:]
+
+# https://www.hackerrank.com/challenges/find-a-string/problem
+
+
+def count_substring(string, sub):
+    count = 0
+    for index in range(len(string)):
+        if string[index:].startswith(sub):
+            count += 1
+    return count
+
+# https://www.hackerrank.com/challenges/string-validators/problem
+
+
+s = input()
+
+check = [False, False, False, False, False]
+
+for char in s:
+    if char.isalnum():
+        check[0] = True
+    if char.isalpha():
+        check[1] = True
+    if char.isdigit():
+        check[2] = True
+    if char.islower():
+        check[3] = True
+    if char.isupper():
+        check[4] = True
+
+print(*check, sep="\n")
+
+# https://www.hackerrank.com/challenges/text-alignment/problem
+
+thickness = int(input())  # This must be an odd number
+c = 'H'
+
+# Top Cone
+for i in range(thickness):
+    print((c*i).rjust(thickness-1)+c+(c*i).ljust(thickness-1))
+
+# Top Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))
+
+# Middle Belt
+for i in range((thickness+1)//2):
+    print((c*thickness*5).center(thickness*6))
+
+# Bottom Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))
+
+# Bottom Cone
+for i in range(thickness):
+    print(((c*(thickness-i-1)).rjust(thickness)+c +
+          (c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
