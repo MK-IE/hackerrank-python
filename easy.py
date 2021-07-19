@@ -1,3 +1,5 @@
+import textwrap
+
 # https://www.hackerrank.com/challenges/py-hello-world/problem
 
 print("Hello, World!")
@@ -130,7 +132,7 @@ for _ in range(n):
 query_name = input()
 grades = student_marks[query_name]
 average = sum(grades) / len(grades)
-print(f"{average:.2 f}")
+print(f"{average:.2f}")
 
 # https://www.hackerrank.com/challenges/python-lists/problem
 
@@ -276,3 +278,12 @@ for i in range(thickness+1):
 for i in range(thickness):
     print(((c*(thickness-i-1)).rjust(thickness)+c +
           (c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
+
+# https://www.hackerrank.com/challenges/text-wrap/problem
+
+
+def wrap(string, max_width):
+    return "\n".join(textwrap.wrap(string, max_width))
+
+# https://www.hackerrank.com/challenges/designer-door-mat/problem
+
